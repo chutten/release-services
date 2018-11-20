@@ -74,12 +74,23 @@ def main(source,
                 )
 
     # Setup settings before stats
-    settings.setup(
-        secrets['APP_CHANNEL'],
-        cache_root,
-        secrets['PUBLICATION'],
-        secrets['ALLOWED_PATHS'],
-    )
+    settings.setup(secrets['APP_CHANNEL'], cache_root, secrets['PUBLICATION'],
+                   secrets['ALLOWED_PATHS'],
+                   secrets['COVERITY_CONFIG']['package_url']
+                   if 'COVERITY_CONFIG' in secrets
+                   and 'package_url' in secrets['COVERITY_CONFIG'] else None,
+                   secrets['COVERITY_CONFIG']['package_name']
+                   if 'COVERITY_CONFIG' in secrets
+                   and 'package_name' in secrets['COVERITY_CONFIG'] else None,
+                   secrets['COVERITY_CONFIG']['server_url']
+                   if 'COVERITY_CONFIG' in secrets
+                   and 'server_url' in secrets['COVERITY_CONFIG'] else None,
+                   secrets['COVERITY_CONFIG']['auth_key']
+                   if 'COVERITY_CONFIG' in secrets
+                   and 'auth_key' in secrets['COVERITY_CONFIG'] else None,
+                   secrets['COVERITY_CONFIG']['package_ver']
+                   if 'COVERITY_CONFIG' in secrets
+                   and 'package_ver' in secrets['COVERITY_CONFIG'] else None)
 
     # Setup statistics
     datadog_api_key = secrets.get('DATADOG_API_KEY')

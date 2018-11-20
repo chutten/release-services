@@ -49,7 +49,23 @@ class Settings(object):
         self.repo_shared_dir = None
         self.taskcluster = None
 
-    def setup(self, app_channel, cache_root, publication, allowed_paths):
+        # For Coverity Analysis package info
+        self.cov_analysis_url = None
+        self.cov_package_name = None
+        self.cov_package_ver = None
+        self.cov_url = None
+        self.cov_auth = None
+
+    def setup(self,
+              app_channel,
+              cache_root,
+              publication,
+              allowed_paths,
+              cov_analysis_url=None,
+              cov_package_name=None,
+              cov_server_url=None,
+              cov_auth=None,
+              cov_package_ver=None):
         self.app_channel = app_channel
         self.download({
             'cpp_extensions': frozenset(['.c', '.h', '.cpp', '.cc', '.cxx', '.hh', '.hpp', '.hxx', '.m', '.mm']),
@@ -81,6 +97,13 @@ class Settings(object):
         assert isinstance(allowed_paths, list)
         assert all(map(lambda p: isinstance(p, str), allowed_paths))
         self.allowed_paths = allowed_paths
+
+        # Set different info for Coverity
+        self.cov_analysis_url = cov_analysis_url
+        self.cov_package_name = cov_package_name
+        self.cov_url = cov_server_url
+        self.cov_auth = cov_auth
+        self.cov_package_ver = cov_package_ver
 
     def __getattr__(self, key):
         if key not in self.config:

@@ -16,6 +16,7 @@ CLANG_TIDY = 'clang-tidy'
 CLANG_FORMAT = 'clang-format'
 MOZLINT = 'mozlint'
 INFER = 'infer'
+COVERITY = 'coverity'
 
 
 class AnalysisException(Exception):
