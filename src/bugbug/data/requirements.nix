@@ -2,7 +2,7 @@
 # See more at: https://github.com/garbas/pypi2nix
 #
 # COMMAND:
-#   pypi2nix -v -C /app/src/bugbug/data/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E blas -E gfortran -E libffi -E openssl -E pkgconfig -E freetype.dev -E libjpeg.dev -E hdf5 -s numpy -s flit -s intreehooks -s cython -s pkgconfig -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
+#   pypi2nix -v -C /tmp/release-services-6rqp25no/src/bugbug/data/../../../tmp/pypi2nix -V 3.7 -O ../../../nix/requirements_override.nix -E blas -E gfortran -E libffi -E openssl -E pkgconfig -E freetype.dev -E libjpeg.dev -E hdf5 -s numpy -s flit -s intreehooks -s cython -s pkgconfig -e pytest-runner -e setuptools-scm -r requirements.txt -r requirements-dev.txt
 #
 
 { pkgs ? import <nixpkgs> {},
@@ -443,10 +443,10 @@ let
     };
 
     "boto3" = python.mkDerivation {
-      name = "boto3-1.9.86";
+      name = "boto3-1.9.87";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/d2/ae/a3a6a0176e5e29716d5f5f89572525689f0d3eb031fc3091000af9b4200c/boto3-1.9.86.tar.gz";
-        sha256 = "63cd957ba663f5c10ff48ed904575eaa701314f79f18dbc59bd050311cd5f809";
+        url = "https://files.pythonhosted.org/packages/a2/89/b7537df281568d01a037381d7a68013e4ad737c26e9802493f600003bb04/boto3-1.9.87.tar.gz";
+        sha256 = "9ccd57a0884d8d827a2e0107f1d38677efa47fb0892e1bfab331333c461d8898";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
@@ -465,10 +465,10 @@ let
     };
 
     "botocore" = python.mkDerivation {
-      name = "botocore-1.12.86";
+      name = "botocore-1.12.87";
       src = pkgs.fetchurl {
-        url = "https://files.pythonhosted.org/packages/8e/b3/b9f7ffa347057fa44c65197864eec6a8a53f5a24f613b1b7b3f2b755cc65/botocore-1.12.86.tar.gz";
-        sha256 = "24444e7580f0114c3e9fff5d2032c6f0cfbf88691b1be3ba27c6922507a902ec";
+        url = "https://files.pythonhosted.org/packages/1c/3c/51dfa2200820c2157c20011645a2b1f8faa5819b742b06f5f78e0effb0ea/botocore-1.12.87.tar.gz";
+        sha256 = "c12ddc6dc32933cab30d8904395c3bd209563b6b9ed7d9cbbe658c1d442639e2";
       };
       doCheck = commonDoCheck;
       checkPhase = "";
